@@ -1,5 +1,4 @@
 
--- Room types master
 CREATE TABLE IF NOT EXISTS room_types (
   id BIGINT PRIMARY KEY AUTO_INCREMENT,
   code VARCHAR(20) NOT NULL UNIQUE,
@@ -10,7 +9,7 @@ CREATE TABLE IF NOT EXISTS room_types (
   archived BOOLEAN NOT NULL DEFAULT FALSE
 );
 
--- Amenities per room type (simple string list)
+
 CREATE TABLE IF NOT EXISTS room_type_amenities (
   room_type_id BIGINT NOT NULL,
   amenity VARCHAR(100) NOT NULL,

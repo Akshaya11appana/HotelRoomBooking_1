@@ -20,8 +20,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
   private final JwtService jwtService;
 
-  // Manual constructor injection (no Lombok)
-  public JwtAuthFilter(JwtService jwtService) {
+    public JwtAuthFilter(JwtService jwtService) {
     this.jwtService = jwtService;
   }
 
@@ -44,7 +43,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
         SecurityContextHolder.getContext().setAuthentication(auth);
       } catch (Exception ignored) {
-        // Invalid or expired token -> continue without authentication
       }
     }
 

@@ -17,7 +17,7 @@ public class SecurityConfig {
 
   private final JwtAuthFilter jwtAuthFilter;
 
-  // Manual constructor injection (no Lombok)
+  
   public SecurityConfig(JwtAuthFilter jwtAuthFilter) {
     this.jwtAuthFilter = jwtAuthFilter;
   }

@@ -27,7 +27,6 @@ public class UserService {
     this.encoder = encoder;
   }
 
-  // B(5): GET /users/me
   public UserDto me() {
     String email = currentUser.email();
     if (email == null) throw new RuntimeException("Unauthorized");
@@ -35,7 +34,6 @@ public class UserService {
     return UserDto.from(u);
   }
 
-  // B(6): PUT /users/me
   public void updateMe(UserUpdateRequest r) {
     String email = currentUser.email();
     if (email == null) throw new RuntimeException("Unauthorized");
@@ -46,7 +44,6 @@ public class UserService {
     userRepo.save(u);
   }
 
-  // C(8): PUT /users/update-phone
   public UpdateAck updatePhone(PhoneUpdate r) {
     String email = currentUser.email();
     if (email == null) throw new RuntimeException("Unauthorized");
@@ -56,13 +53,11 @@ public class UserService {
     return new UpdateAck("Phone updated", "CUSTOMER", OffsetDateTime.now());
   }
 
-  // C(9): PUT /users/update-email
   public UpdateAck updateEmail(EmailUpdate r) {
     String email = currentUser.email();
     if (email == null) throw new RuntimeException("Unauthorized");
     User u = userRepo.findByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
 
-    // simple uniqueness check
     userRepo.findByEmail(r.getNewEmail()).ifPresent(x -> { throw new RuntimeException("Email already exists"); });
 
     u.setEmail(r.getNewEmail());
@@ -70,7 +65,6 @@ public class UserService {
     return new UpdateAck("Email updated", "CUSTOMER", OffsetDateTime.now());
   }
 
-  // C(10): PUT /users/update-password
   public UpdateAck updatePassword(PasswordUpdate r) {
     String email = currentUser.email();
     if (email == null) throw new RuntimeException("Unauthorized");
@@ -84,7 +78,6 @@ public class UserService {
     return new UpdateAck("Password updated", "CUSTOMER", OffsetDateTime.now());
   }
 
-  // C(11): GET /users/{userId}
   public UserDetail getUser(Long userId) {
     User u = userRepo.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
     UserDetail d = new UserDetail();
@@ -98,17 +91,15 @@ public class UserService {
     return d;
   }
 
-  // C(12): GET /users/{userId}/activity  (stubbed demo)
   public UserActivityDto activity(Long userId) {
     UserActivityDto dto = new UserActivityDto();
     dto.setUserId(userId);
-    // You can later populate from a real audit table
     dto.getEvents().add(new UserActivityDto.Event("BOOKING_CREATED", 9001L, OffsetDateTime.now().minusDays(1)));
     dto.getEvents().add(new UserActivityDto.Event("PAYMENT_SUCCESS", 77701L, OffsetDateTime.now().minusDays(1)));
     return dto;
   }
 
-  // C(13): PUT /users/{userId}/preferences
+
   public void updatePreferences(Long userId, PreferencesDto r) {
     User u = userRepo.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
     UserPreferences p = u.getPreferences() != null ? u.getPreferences() : new UserPreferences();
@@ -120,7 +111,7 @@ public class UserService {
     userRepo.save(u);
   }
 
-  // C(15): GET /users/{userId}/preferences
+ 
   public PreferencesDto getPreferences(Long userId) {
     User u = userRepo.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
     UserPreferences p = u.getPreferences();

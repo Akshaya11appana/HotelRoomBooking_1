@@ -11,7 +11,6 @@ public class CurrentUser {
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     if (auth == null) return null;
     Object principal = auth.getPrincipal();
-    // We set subject=email in the JWT, and in JwtAuthFilter we used it as principal
     return principal != null ? principal.toString() : null;
   }
 }

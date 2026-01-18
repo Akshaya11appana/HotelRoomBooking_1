@@ -18,31 +18,30 @@ public class AuthController {
 
   private final AuthService authService;
 
-  // Manual constructor
+
   public AuthController(AuthService authService) {
     this.authService = authService;
   }
 
-  // A(1) Register
+
   @PostMapping("/register")
   public ResponseEntity<UserDto> register(@RequestBody RegisterRequest req){
     return ResponseEntity.status(HttpStatus.CREATED).body(authService.register(req));
   }
 
-  // A(2) Login
+
   @PostMapping("/login")
   public ResponseEntity<TokenResponse> login(@RequestBody LoginRequest req){
     return ResponseEntity.ok(authService.login(req));
   }
 
-  // A(3) Forgot password (stub)
   @PostMapping("/forgot-password")
   public Map<String,String> forgot(@RequestBody Map<String,String> body){
     authService.initiateReset(body.get("email"));
     return Map.of("message","Password reset email sent");
   }
 
-  // A(4) Verify reset code (stub)
+ 
   @PostMapping("/verify-reset-code")
   public Map<String,Object> verify(@RequestBody Map<String,String> body){
     boolean valid = authService.verifyReset(body.get("email"), body.get("code"));

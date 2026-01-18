@@ -1,5 +1,4 @@
 
-// src/main/java/com/ey/exception/GlobalExceptionHandler.java
 package com.ey.exception;
 
 import org.springframework.http.*;

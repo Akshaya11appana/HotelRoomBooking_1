@@ -23,7 +23,6 @@ public class AuthService {
   private final PasswordEncoder encoder;
   private final JwtService jwt;
 
-  // Manual constructor injection (no Lombok)
   public AuthService(UserRepo userRepo,
                      PasswordEncoder encoder,
                      JwtService jwt) {
@@ -63,16 +62,13 @@ public class AuthService {
         u.getRoles().stream().map(Enum::name).toList()
     );
 
-    // `expiresIn` matches your API doc’s 3600 seconds
     return new TokenResponse(token, "Bearer", 3600);
   }
 
   public void initiateReset(String email){
-    // TODO: store and email a reset code per your requirements
   }
 
   public boolean verifyReset(String email, String code){
-    // TODO: implement verification logic
     return true;
   }
 }

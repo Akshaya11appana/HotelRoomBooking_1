@@ -9,7 +9,7 @@ public class UserDetail {
   private String lastName;
   private String email;
   private String phoneNumber;
-  private String role; // simple single role text for demo
+  private String role; 
   private boolean enabled = true;
   private LocalDateTime createdAt;
 
