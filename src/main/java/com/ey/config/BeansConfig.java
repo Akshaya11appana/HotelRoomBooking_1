@@ -1,4 +1,3 @@
-
 package com.ey.config;
 
 import org.springframework.context.annotation.Bean;

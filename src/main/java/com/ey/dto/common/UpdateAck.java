@@ -1,4 +1,3 @@
-
 package com.ey.dto.common;
 
 import java.time.OffsetDateTime;

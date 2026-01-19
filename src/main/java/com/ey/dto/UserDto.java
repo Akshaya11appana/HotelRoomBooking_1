@@ -1,4 +1,3 @@
-
 package com.ey.dto;
 
 import com.ey.domain.Role;

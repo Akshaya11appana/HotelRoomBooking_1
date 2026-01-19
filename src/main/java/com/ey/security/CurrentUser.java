@@ -1,4 +1,3 @@
-
 package com.ey.security;
 
 import org.springframework.security.core.Authentication;

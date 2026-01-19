@@ -1,4 +1,3 @@
-
 package com.ey.domain;
 
 import jakarta.persistence.Embeddable;

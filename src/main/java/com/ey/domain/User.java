@@ -1,4 +1,3 @@
-
 package com.ey.domain;
 
 import jakarta.persistence.*;
@@ -37,8 +36,6 @@ public class User {
 
   @Embedded
   private UserPreferences preferences;
-
-  // --- Getters and Setters (no Lombok) ---
 
   public Long getId() { return id; }
   public void setId(Long id) { this.id = id; }
