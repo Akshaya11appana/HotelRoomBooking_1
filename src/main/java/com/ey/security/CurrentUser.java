@@ -6,10 +6,22 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CurrentUser {
-  public String email() {
-    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-    if (auth == null) return null;
-    Object principal = auth.getPrincipal();
-    return principal != null ? principal.toString() : null;
-  }
+    public String email() {
+        Authentication a = SecurityContextHolder.getContext().getAuthentication();
+        if (a == null) return null;
+        Object p = a.getPrincipal();
+        return (p != null) ? p.toString() : null;
+    }
+
+    public boolean isAdmin() {
+        Authentication a = SecurityContextHolder.getContext().getAuthentication();
+        if (a == null) return false;
+        return a.getAuthorities().stream().anyMatch(g -> "ADMIN".equalsIgnoreCase(g.getAuthority()));
+    }
+
+    public boolean isStaff() {
+        Authentication a = SecurityContextHolder.getContext().getAuthentication();
+        if (a == null) return false;
+        return a.getAuthorities().stream().anyMatch(g -> "STAFF".equalsIgnoreCase(g.getAuthority()));
+    }
 }

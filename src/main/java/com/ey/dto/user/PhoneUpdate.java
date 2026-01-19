@@ -1,8 +1,13 @@
+
 package com.ey.dto.user;
 
-public class PhoneUpdate {
-  private String newPhoneNumber;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-  public String getNewPhoneNumber() { return newPhoneNumber; }
-  public void setNewPhoneNumber(String newPhoneNumber) { this.newPhoneNumber = newPhoneNumber; }
+public class PhoneUpdate {
+
+    @JsonProperty("phone")      
+    private String phone;
+
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
 }

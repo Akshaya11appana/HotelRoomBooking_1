@@ -1,5 +1,6 @@
 package com.ey.dto.user;
 
+import com.ey.domain.User;
 import java.time.LocalDateTime;
 
 public class UserDetail {
@@ -8,9 +9,29 @@ public class UserDetail {
   private String lastName;
   private String email;
   private String phoneNumber;
-  private String role; 
-  private boolean enabled = true;
+  private String role;                
+  private boolean enabled = true;      
   private LocalDateTime createdAt;
+
+  /** Static mapper used by service: UserDetail.from(u) */
+  public static UserDetail from(User u) {
+    UserDetail d = new UserDetail();
+    d.setUserId(u.getId());
+    d.setFirstName(u.getFirstName());
+    d.setLastName(u.getLastName());
+    d.setEmail(u.getEmail());
+    d.setPhoneNumber(u.getPhone());
+    d.setCreatedAt(u.getCreatedAt());
+
+  
+    if (u.getRoles() != null && !u.getRoles().isEmpty()) {
+      d.setRole(u.getRoles().iterator().next().name());
+    }
+
+
+
+    return d;
+  }
 
   public Long getUserId() { return userId; }
   public void setUserId(Long userId) { this.userId = userId; }

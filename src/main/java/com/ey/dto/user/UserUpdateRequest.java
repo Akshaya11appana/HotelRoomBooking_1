@@ -1,16 +1,24 @@
 package com.ey.dto.user;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class UserUpdateRequest {
-  private String firstName;
-  private String lastName;
-  private String phone;
 
-  public String getFirstName() { return firstName; }
-  public void setFirstName(String firstName) { this.firstName = firstName; }
+    @JsonProperty("firstName")
+    private String firstName;
 
-  public String getLastName() { return lastName; }
-  public void setLastName(String lastName) { this.lastName = lastName; }
+    @JsonProperty("lastName")
+    private String lastName;
 
-  public String getPhone() { return phone; }
-  public void setPhone(String phone) { this.phone = phone; }
+    @JsonProperty("phone")
+    private String phone;
+
+    public String getFirstName() { return firstName; }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
+
+    public String getLastName() { return lastName; }
+    public void setLastName(String lastName) { this.lastName = lastName; }
+
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
 }

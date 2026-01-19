@@ -5,50 +5,19 @@ import jakarta.persistence.Embeddable;
 @Embeddable
 public class UserPreferences {
 
-  private Boolean smoking;
-  private String bedType;
-  private Boolean lateCheckout;
-  private String floorPreference;
+    private String bedType;
+    private String floorPreference;
+    private boolean lateCheckout;
+    private boolean smoking;
 
-  public UserPreferences() {
-  }
+    public String getBedType() { return bedType; }
+    public String getFloorPreference() { return floorPreference; }
+    public boolean isLateCheckout() { return lateCheckout; }
+    public boolean isSmoking() { return smoking; }
 
-  public UserPreferences(Boolean smoking, String bedType, Boolean lateCheckout, String floorPreference) {
-    this.smoking = smoking;
-    this.bedType = bedType;
-    this.lateCheckout = lateCheckout;
-    this.floorPreference = floorPreference;
-  }
 
-  public Boolean getSmoking() {
-    return smoking;
-  }
-
-  public void setSmoking(Boolean smoking) {
-    this.smoking = smoking;
-  }
-
-  public String getBedType() {
-    return bedType;
-  }
-
-  public void setBedType(String bedType) {
-    this.bedType = bedType;
-  }
-
-  public Boolean getLateCheckout() {
-    return lateCheckout;
-  }
-
-  public void setLateCheckout(Boolean lateCheckout) {
-    this.lateCheckout = lateCheckout;
-  }
-
-  public String getFloorPreference() {
-    return floorPreference;
-  }
-
-  public void setFloorPreference(String floorPreference) {
-    this.floorPreference = floorPreference;
-  }
+    public void setBedType(String bedType) { this.bedType = bedType; }
+    public void setFloorPreference(String floorPreference) { this.floorPreference = floorPreference; }
+    public void setLateCheckout(boolean lateCheckout) { this.lateCheckout = lateCheckout; }
+    public void setSmoking(boolean smoking) { this.smoking = smoking; }
 }

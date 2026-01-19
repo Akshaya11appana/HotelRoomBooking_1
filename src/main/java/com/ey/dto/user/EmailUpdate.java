@@ -1,8 +1,13 @@
+
 package com.ey.dto.user;
 
-public class EmailUpdate {
-  private String newEmail;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-  public String getNewEmail() { return newEmail; }
-  public void setNewEmail(String newEmail) { this.newEmail = newEmail; }
+public class EmailUpdate {
+
+    @JsonProperty("email")      // JSON --> Java binding guarantee
+    private String email;
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 }
