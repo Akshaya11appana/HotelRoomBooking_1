@@ -1,8 +1,9 @@
 package com.ey.dto.payment;
 
-import com.ey.domain.Payment;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import com.ey.domain.Payment;
 
 public class PaymentResponse {
 

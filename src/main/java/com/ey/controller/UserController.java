@@ -1,4 +1,4 @@
-package com.ey.web;
+package com.ey.controller;
 
 import com.ey.dto.UserDto;
 import com.ey.dto.common.UpdateAck;

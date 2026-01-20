@@ -1,5 +1,5 @@
 
-package com.ey.web;
+package com.ey.controller;
 
 import com.ey.dto.pricing.PricingQuoteRequest;
 import com.ey.dto.pricing.PricingQuoteResponse;

@@ -1,5 +1,5 @@
 
-package com.ey.web;
+package com.ey.controller;
 
 import java.util.List;
 import java.util.Map;

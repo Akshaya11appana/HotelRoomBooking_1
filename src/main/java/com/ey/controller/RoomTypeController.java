@@ -1,4 +1,4 @@
-package com.ey.web;
+package com.ey.controller;
 
 import com.ey.dto.room.RoomTypeCreate;
 import com.ey.dto.room.RoomTypeDto;
